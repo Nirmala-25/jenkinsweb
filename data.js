@@ -1,10 +1,11 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyD2CH4R3l5e3QCp3ohxIkUNNtblxvumxgc",
-    authDomain: "test2-d0510.firebaseapp.com",
-    projectId: "test2-d0510",
-    storageBucket: "test2-d0510.appspot.com",
-    messagingSenderId: "942525184292",
-    appId: "1:942525184292:web:650f6cb114ba8cf4541bb1"
+var firebaseConfig = {
+    apiKey: "AIzaSyC0pCEIFRRMMFDjG0S37-d-Sf2IV1VgQyQ",
+    authDomain: "book-137fc.firebaseapp.com",
+    databaseURL: "https://book-137fc-default-rtdb.firebaseio.com",
+    projectId: "book-137fc",
+    storageBucket: "book-137fc.appspot.com",
+    messagingSenderId: "703180926785",
+    appId: "1:703180926785:web:fab897ad36e5c11d017bc0"
   };
   
   // Initialize Firebase
@@ -16,8 +17,7 @@ var datab  = firebase.database().ref('data');
 function UserRegister(){
 var email = document.getElementById('eemail').value;
 var password = document.getElementById('lpassword').value;
-var contact = document.getElementById('phone').value;
-firebase.auth().createUserWithEmailPasswordAndcontact(email,password,contact).then(function(){
+firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
     
 }).catch(function (error){
     var errorcode = error.code;
@@ -28,8 +28,7 @@ const auth = firebase.auth();
 function SignIn(){
     var email = document.getElementById('eemail').value;
     var password = document.getElementById('lpassword').value;
-    var contact = document.getElementById('phone').value;
-    const promise = auth.signInWithEmailAndPassword(email,password,contact);
+    const promise = auth.signInWithEmailAndPassword(email,password);
     promise.catch( e => alert(e.msg));
     window.open("https://www.google.com","_self");
 }
@@ -39,10 +38,9 @@ document.getElementById('form').addEventListener('submit', (e) => {
     userInfo.set({
         name: getId('fname'),
         email : getId('eemail'),
-        password : getId('lpassword'),
-        contact : getId('phone')
+        password : getId('lpassword')
     });
-    alert("Successfully Register");
+    alert("Successfully Signed Up");
     console.log("sent");
     document.getElementById('form').reset();
 });
