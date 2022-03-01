@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@SpringBootApplication
-public class book {
+@RestController
+public class DemoApplicationTests {
 
-	public static void main(String[] args)
-	{
-		SpringApplication.run(book.class, args);
-		System.out.println("Hello na public")
+	@GetMapping(path = "/hello")
+	public String hello(){
+		return "Hello na Public !!";
 	}
 
 }
